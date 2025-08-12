@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  container:
+    build:
+      context: .
+    restart: always
+    tty: true
+    ports:
+      - '${APP_PORT-3000}:3000'
+
+  pgsql:
+    image: postgres:15.2
+    ports:
+      - '${FORWARD_DB_PORT-5432}:5432'
+    volumes:
+      - './docker/data/pgsql:/var/lib/postgresql/data'
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+networks:
+  default:
+    name: tofisa-network
+    external: true
