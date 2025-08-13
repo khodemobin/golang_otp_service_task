@@ -1,15 +1,15 @@
 package app
 
 import (
-	"github.com/khodemobin/golang_boilerplate/internal/model"
-	"github.com/khodemobin/golang_boilerplate/internal/server/handler"
-	"github.com/khodemobin/golang_boilerplate/pkg/logger/zap"
-	"github.com/khodemobin/golang_boilerplate/pkg/pgsql"
+	"github.com/khodemobin/golang_otp_service_task/internal/model"
+	"github.com/khodemobin/golang_otp_service_task/internal/server/handler"
+	"github.com/khodemobin/golang_otp_service_task/pkg/logger/zap"
+	"github.com/khodemobin/golang_otp_service_task/pkg/pgsql"
 
-	"github.com/khodemobin/golang_boilerplate/internal/config"
-	"github.com/khodemobin/golang_boilerplate/internal/service"
-	"github.com/khodemobin/golang_boilerplate/pkg/cache"
-	"github.com/khodemobin/golang_boilerplate/pkg/logger"
+	"github.com/khodemobin/golang_otp_service_task/internal/config"
+	"github.com/khodemobin/golang_otp_service_task/internal/service"
+	"github.com/khodemobin/golang_otp_service_task/pkg/cache"
+	"github.com/khodemobin/golang_otp_service_task/pkg/logger"
 
 	"gorm.io/gorm"
 )

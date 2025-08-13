@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/khodemobin/golang_boilerplate/internal/config"
+	"github.com/khodemobin/golang_otp_service_task/internal/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	l "gorm.io/gorm/logger"

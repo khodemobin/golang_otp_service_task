@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"github.com/khodemobin/golang_boilerplate/internal/app"
+	"github.com/khodemobin/golang_otp_service_task/internal/app"
 
-	"github.com/khodemobin/golang_boilerplate/cmd"
+	"github.com/khodemobin/golang_otp_service_task/cmd"
 	"github.com/spf13/cobra"
 )
 

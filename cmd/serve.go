@@ -8,9 +8,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/khodemobin/golang_boilerplate/internal/app"
+	"github.com/khodemobin/golang_otp_service_task/internal/app"
 
-	"github.com/khodemobin/golang_boilerplate/internal/server"
+	"github.com/khodemobin/golang_otp_service_task/internal/server"
 	"github.com/spf13/cobra"
 )
 

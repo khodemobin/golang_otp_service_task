@@ -3,10 +3,10 @@ package service
 import (
 	"errors"
 
-	"github.com/khodemobin/golang_boilerplate/internal/model"
-	"github.com/khodemobin/golang_boilerplate/internal/server/dto"
-	"github.com/khodemobin/golang_boilerplate/pkg/apperror"
-	"github.com/khodemobin/golang_boilerplate/pkg/pgsql/scope"
+	"github.com/khodemobin/golang_otp_service_task/internal/model"
+	"github.com/khodemobin/golang_otp_service_task/internal/server/dto"
+	"github.com/khodemobin/golang_otp_service_task/pkg/apperror"
+	"github.com/khodemobin/golang_otp_service_task/pkg/pgsql/scope"
 	"gorm.io/gorm"
 )
 

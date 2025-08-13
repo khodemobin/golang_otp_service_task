@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/khodemobin/golang_boilerplate/internal/server/middleware"
+	"github.com/khodemobin/golang_otp_service_task/internal/server/middleware"
 )
 
 func (r *Server) routing() {

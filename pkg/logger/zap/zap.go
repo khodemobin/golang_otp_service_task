@@ -4,7 +4,7 @@ import (
 	l "log"
 	"os"
 
-	"github.com/khodemobin/golang_boilerplate/pkg/logger"
+	"github.com/khodemobin/golang_otp_service_task/pkg/logger"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

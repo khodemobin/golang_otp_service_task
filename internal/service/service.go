@@ -1,10 +1,10 @@
 package service
 
 import (
-	"github.com/khodemobin/golang_boilerplate/internal/config"
-	"github.com/khodemobin/golang_boilerplate/internal/server/dto"
-	"github.com/khodemobin/golang_boilerplate/pkg/cache"
-	"github.com/khodemobin/golang_boilerplate/pkg/logger"
+	"github.com/khodemobin/golang_otp_service_task/internal/config"
+	"github.com/khodemobin/golang_otp_service_task/internal/server/dto"
+	"github.com/khodemobin/golang_otp_service_task/pkg/cache"
+	"github.com/khodemobin/golang_otp_service_task/pkg/logger"
 	"gorm.io/gorm"
 )
 

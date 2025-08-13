@@ -2,11 +2,11 @@ package handler
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/khodemobin/golang_boilerplate/internal/server/dto"
-	"github.com/khodemobin/golang_boilerplate/internal/service"
-	"github.com/khodemobin/golang_boilerplate/pkg/apperror"
-	"github.com/khodemobin/golang_boilerplate/pkg/logger"
-	"github.com/khodemobin/golang_boilerplate/pkg/response"
+	"github.com/khodemobin/golang_otp_service_task/internal/server/dto"
+	"github.com/khodemobin/golang_otp_service_task/internal/service"
+	"github.com/khodemobin/golang_otp_service_task/pkg/apperror"
+	"github.com/khodemobin/golang_otp_service_task/pkg/logger"
+	"github.com/khodemobin/golang_otp_service_task/pkg/response"
 )
 
 type UserHandler struct {

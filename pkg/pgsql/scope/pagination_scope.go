@@ -1,7 +1,7 @@
 package scope
 
 import (
-	"github.com/khodemobin/golang_boilerplate/internal/server/dto"
+	"github.com/khodemobin/golang_otp_service_task/internal/server/dto"
 	"gorm.io/gorm"
 )
 

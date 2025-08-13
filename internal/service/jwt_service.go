@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/khodemobin/golang_boilerplate/internal/config"
+	"github.com/khodemobin/golang_otp_service_task/internal/config"
 )
 
 type IJWTServiceImpl struct {

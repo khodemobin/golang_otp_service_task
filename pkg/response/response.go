@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/khodemobin/golang_boilerplate/pkg/apperror"
+	"github.com/khodemobin/golang_otp_service_task/pkg/apperror"
 )
 
 type FailedResponse struct {

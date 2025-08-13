@@ -3,7 +3,7 @@ package middleware
 import (
 	jwtware "github.com/gofiber/contrib/jwt"
 	"github.com/gofiber/fiber/v2"
-	"github.com/khodemobin/golang_boilerplate/internal/app"
+	"github.com/khodemobin/golang_otp_service_task/internal/app"
 )
 
 func Protected(app *app.App) fiber.Handler {

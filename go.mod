@@ -1,4 +1,4 @@
-module github.com/khodemobin/golang_boilerplate
+module github.com/khodemobin/golang_otp_service_task
 
 go 1.24
 
@@ -15,7 +15,6 @@ require (
 	github.com/spf13/cobra v1.9.1
 	github.com/swaggo/swag v1.16.6
 	go.uber.org/zap v1.27.0
-	golang.org/x/crypto v0.41.0
 	gorm.io/driver/postgres v1.6.0
 	gorm.io/gorm v1.30.1
 )
@@ -59,6 +58,7 @@ require (
 	github.com/valyala/fasthttp v1.64.0 // indirect
 	go.mongodb.org/mongo-driver v1.13.1 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
+	golang.org/x/crypto v0.41.0 // indirect
 	golang.org/x/mod v0.27.0 // indirect
 	golang.org/x/sync v0.16.0 // indirect
 	golang.org/x/sys v0.35.0 // indirect

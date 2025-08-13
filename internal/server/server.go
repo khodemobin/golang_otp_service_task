@@ -7,8 +7,8 @@ import (
 
 	"github.com/gofiber/contrib/swagger"
 	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/khodemobin/golang_boilerplate/internal/app"
-	"github.com/khodemobin/golang_boilerplate/internal/server/handler"
+	"github.com/khodemobin/golang_otp_service_task/internal/app"
+	"github.com/khodemobin/golang_otp_service_task/internal/server/handler"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"

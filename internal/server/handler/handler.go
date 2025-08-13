@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/khodemobin/golang_boilerplate/internal/service"
-	"github.com/khodemobin/golang_boilerplate/pkg/logger"
+	"github.com/khodemobin/golang_otp_service_task/internal/service"
+	"github.com/khodemobin/golang_otp_service_task/pkg/logger"
 )
 
 type Handler struct {
