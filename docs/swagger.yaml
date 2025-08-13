@@ -24,14 +24,24 @@ definitions:
     type: object
   dto.User:
     properties:
-      email:
-        type: string
       id:
         type: integer
       phone:
         type: string
-      username:
+    type: object
+  dto.UserGetResponse:
+    properties:
+      id:
+        type: integer
+      phone:
         type: string
+    type: object
+  dto.UserListResponse:
+    properties:
+      users:
+        items:
+          $ref: '#/definitions/dto.User'
+        type: array
     type: object
 externalDocs:
   description: OpenAPI
@@ -80,4 +90,57 @@ paths:
           schema:
             $ref: '#/definitions/dto.OTPVerifyResponse'
       summary: Very login/register otp code
+  /users:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: count
+        in: query
+        name: count
+        type: integer
+      - description: phone
+        in: query
+        name: phone
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.UserListResponse'
+      summary: get list of users
+  /users/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.UserGetResponse'
+      summary: get user by id
 swagger: "2.0"

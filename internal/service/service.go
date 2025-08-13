@@ -22,10 +22,16 @@ type IAuthService interface {
 	Login(phone string) (string, *dto.User, error)
 }
 
+type IUserService interface {
+	Index(*dto.UserListRequest) (*dto.UserListResponse, error)
+	Find(uint) (*dto.UserGetResponse, error)
+}
+
 type Service struct {
 	OTPService  IOTPService
 	JWTService  IJWTService
 	AuthService IAuthService
+	UserService IUserService
 }
 
 func NewService(cfg *config.Config, db *gorm.DB, logger logger.Logger, cache cache.Cache) *Service {
@@ -37,5 +43,6 @@ func NewService(cfg *config.Config, db *gorm.DB, logger logger.Logger, cache cac
 		OTPService:  otpService,
 		JWTService:  jwtService,
 		AuthService: authService,
+		UserService: newUserService(db),
 	}
 }
