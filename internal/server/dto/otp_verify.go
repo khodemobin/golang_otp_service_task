@@ -1,6 +1,9 @@
 package dto
 
-import "github.com/invopop/validation"
+import (
+	"github.com/invopop/validation"
+	"github.com/invopop/validation/is"
+)
 
 type (
 	OTPVerifyRequest struct {
@@ -16,7 +19,7 @@ type (
 
 func (req OTPVerifyRequest) Validate() error {
 	return validation.ValidateStruct(&req,
-		validation.Field(&req.Phone, validation.Required, validation.Length(0, 11)),
+		validation.Field(&req.Phone, validation.Required, is.Digit, validation.Length(0, 11)),
 		validation.Field(&req.OTP, validation.Required, validation.Length(0, 6)),
 	)
 }
