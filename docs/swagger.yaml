@@ -1,0 +1,83 @@
+basePath: /api
+definitions:
+  dto.OTPRequest:
+    properties:
+      phone:
+        type: string
+    type: object
+  dto.OTPVerifyRequest:
+    properties:
+      otp:
+        type: string
+      phone:
+        type: string
+    required:
+    - otp
+    - phone
+    type: object
+  dto.OTPVerifyResponse:
+    properties:
+      token:
+        type: string
+      user:
+        $ref: '#/definitions/dto.User'
+    type: object
+  dto.User:
+    properties:
+      email:
+        type: string
+      id:
+        type: integer
+      phone:
+        type: string
+      username:
+        type: string
+    type: object
+externalDocs:
+  description: OpenAPI
+  url: https://swagger.io/resources/open-api
+host: localhost:3000
+info:
+  contact: {}
+  title: Golang OTP Testcase
+  version: "1.0"
+paths:
+  /auth/otp/send:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.OTPRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Send login/register otp code
+  /auth/otp/verify:
+    post:
+      consumes:
+      - application/json
+      description: If user exists in database return new token and if not create new
+        one.
+      parameters:
+      - description: query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.OTPVerifyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.OTPVerifyResponse'
+      summary: Very login/register otp code
+swagger: "2.0"

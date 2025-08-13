@@ -3,10 +3,7 @@ package cache
 import "time"
 
 type Cache interface {
-	Get(key string, defaultValue func() (string, error)) (string, error)
-	Set(key string, value interface{}, expiration time.Duration) error
+	Get(key string, result any) error
+	Set(key string, value any, ttl time.Duration) error
 	Delete(key string) error
-	Pull(key string, defaultValue func() (string, error)) (string, error)
-	Remember(key string, defaultValue func() (string, time.Duration, error)) (string, error)
-	Close() error
 }

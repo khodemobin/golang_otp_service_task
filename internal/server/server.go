@@ -2,52 +2,57 @@ package server
 
 import (
 	"fmt"
+	"path/filepath"
+	"runtime"
+
+	"github.com/gofiber/contrib/swagger"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/khodemobin/golang_boilerplate/internal/app"
-	"github.com/khodemobin/golang_boilerplate/internal/server/middleware"
+	"github.com/khodemobin/golang_boilerplate/internal/server/handler"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
-	"github.com/gofiber/fiber/v2/middleware/cors"
 	fiberLogger "github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 )
 
 type Server struct {
-	app *fiber.App
+	app     *app.App
+	router  *fiber.App
+	handler *handler.Handler
 }
 
-func New(isLocal bool) *Server {
+func New(app *app.App) *Server {
 	return &Server{
-		app: fiber.New(fiber.Config{
-			Prefork: !isLocal,
+		app: app,
+		router: fiber.New(fiber.Config{
 			ErrorHandler: func(ctx *fiber.Ctx, err error) error {
-				app.Log().Error(err)
+				app.Log.Error(err)
 				return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 					"message": "Internal Server Error",
 				})
 			},
 		}),
+		handler: handler.NewHandler(app.Log, app.Service),
 	}
 }
 
-func (r *Server) Start(isLocal bool, port int) error {
-	if isLocal {
-		r.app.Use(fiberLogger.New())
-	} else {
-		r.app.Use(recover.New(), compress.New())
-		r.app.Use(middleware.NewSentryFiber(middleware.Options{
-			Repanic: true,
-		}))
-	}
+func (r *Server) Start() error {
+	_, b, _, _ := runtime.Caller(0)
+	path := filepath.Join(filepath.Dir(b), "../..")
 
-	r.app.Use(cors.New(cors.Config{
-		AllowCredentials: true,
+	r.router.Use(fiberLogger.New())
+	r.router.Use(recover.New(), compress.New())
+	r.router.Use(cors.New())
+	r.router.Use(swagger.New(swagger.Config{
+		FilePath: path + "/docs/swagger.json",
+		Path:     "swagger",
 	}))
 
 	r.routing()
-	return r.app.Listen(fmt.Sprintf(":%d", port))
+	return r.router.Listen(fmt.Sprintf(":%d", r.app.Config.App.Port))
 }
 
 func (r *Server) Shutdown() error {
-	return r.app.Shutdown()
+	return r.router.Shutdown()
 }

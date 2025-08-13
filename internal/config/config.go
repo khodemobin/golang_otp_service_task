@@ -9,8 +9,9 @@ import (
 )
 
 type App struct {
-	Port int    `env:"APP_PORT" env-default:"8000"`
-	Env  string `env:"APP_ENV" env-default:"local"`
+	Port      int    `env:"APP_PORT" env-default:"8000"`
+	Env       string `env:"APP_ENV" env-default:"local"`
+	JWTSecret string `env:"JWT_SECRET" env-default:"secret"`
 }
 
 type DB struct {
@@ -21,22 +22,9 @@ type DB struct {
 	Port     int    `env:"DB_PORT" env-default:"3306"`
 }
 
-type Sentry struct {
-	Dsn string `env:"SENTRY_DSN" env-default:""`
-}
-
-type Redis struct {
-	Address  string `env:"REDIS_ADDRESS" env-default:"localhost"`
-	Password string `env:"REDIS_PASSWORD" env-default:"secret"`
-	PoolSize int    `env:"REDIS_PO0L_SIZE" env-default:"10"`
-	Database int    `env:"REDIS_DATABASE" env-default:"0"`
-}
-
 type Config struct {
-	App    App
-	DB     DB
-	Sentry Sentry
-	Redis  Redis
+	App App
+	DB  DB
 }
 
 var cfg Config
