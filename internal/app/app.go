@@ -2,7 +2,6 @@ package app
 
 import (
 	"github.com/khodemobin/golang_otp_service_task/internal/model"
-	"github.com/khodemobin/golang_otp_service_task/internal/server/handler"
 	"github.com/khodemobin/golang_otp_service_task/pkg/logger/zap"
 	"github.com/khodemobin/golang_otp_service_task/pkg/pgsql"
 
@@ -20,7 +19,6 @@ type App struct {
 	Log     logger.Logger
 	Config  *config.Config
 	Service *service.Service
-	handler *handler.Handler
 }
 
 func New() *App {
